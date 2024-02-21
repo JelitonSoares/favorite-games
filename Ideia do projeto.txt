@@ -1,0 +1,48 @@
+
+
+             
+
+
+
+                        PROJETO JOGOS PREFERIDOS
+
+
+BANCO DE DADOS:
+
+ 
+     USUARIO:          JOGOS_PREFERIDOS:
+id                     id
+nome                   jogo1
+senha                  jogo2
+ativo                  jogo3
+                       jogo4
+                       jogo5
+
+Programa deve conter um tela de login: 
+caso o usuario ja tenha cadastro: será pedido o id e a senha do mesmo
+caso ele ainda não seja cadastrado: o programa deve criar um cadastro para ele no banco de dados contendo id nome e senha (id deverá ser único)
+com suas credenciais corretas ou conta criada: o programa deve exibir um menu com as opções de 
+                                                                                                1 - Listar jogos preferidos
+                                                                                                2 - cadastrar jogo preferido
+                                                                                                3 - excluir jogo preferido
+                                                                                                4 - atualizar jogo preferido
+                                                                                                5 - sair
+1 o programa deve fazer uma consulta ao banco de dados (tabela: JOGOS_PREFERIDS) com base no id e retornar o resultado
+2 essa opção é para usuários que nunca cadastraram nenhum jogo preferido, o programa deve perguntar o nome dos jogos começando com o numero 1 (mais favorito)
+3 o programa deve listar os jogos ao usuário e perguntar qual ele quer excluir(executar o comando SQL: DELETE)
+4 essa opção serve para que o usuário consiga atualizar um jogo preferido por vez, o programa perguntara o nome do jogo, (Executar comando UPDATE)
+5 comando para fechar a aplicação
+
+REGRAS:
+Não poderá fazer login com contas que estão consideradas inativas (Somente o usuário pode desativar sua própria conta)
+Ao inserir os jogos preferidos o usuário obrigatóriamente deve inserir os 5 jogos, caso um não seja inserido o programa exibirá um erro e o programa volta ao menu
+Todas as operações que necessitarem do id do usuário o sistema deverá ser capaz de pegar o id da sessão atual e usa-lo:
+                                                                                                                       ex: se o usuário souza15 escolhe a opção de listar
+                                                                                                                       os jogos preferidos o programa deverá usar o id
+                                                                                                                       souza15 para listar os jogos que estão cadastrados
+                                                                                                                       para ele!! O mesmo para outras operações
+Programa deverá ter tratamento de exceções para que a aplicação não encerre em momento de excecução
+o programa deverá ser escalável e utilizar o mecanismo de pool de conexões
+
+
+
