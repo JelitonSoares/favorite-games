@@ -1,23 +1,35 @@
 package br.com.jeli.favoritegame;
 
+import br.com.jeli.favoritegame.domain.DomainException;
 import br.com.jeli.favoritegame.domain.usuario.UsuarioService;
 
 import java.util.Scanner;
 
 public class FavoriteGamesApplication {
 
+    //---Classe que representa o menu da aplicação---
+
+
     private static UsuarioService service = new UsuarioService();
     private static Scanner scanner = new Scanner(System.in).useDelimiter("\n");
+
+    //Menu principal da aplicação onde contém as opções de entrar com um usuario ja existente ou cadastrar um usuario
     public static void main(String[] args) {
         Integer opcao = exibirMenu();
         while(opcao != 3) {
-            switch (opcao){
-                case 1:
-                    entrar();
-                    break;
-                case 2:
-                    cadastrar();
-                    break;
+            try{
+                switch (opcao){
+                    case 1:
+                        entrar();
+                        break;
+                    case 2:
+                        cadastrar();
+                        break;
+                }
+            }catch (DomainException e) {
+                System.out.println("Erro: " + e.getMessage());
+                System.out.println("Pressione enter para voltar ao menu principal");
+                scanner.next();
             }
             opcao = exibirMenu();
         }
@@ -26,6 +38,7 @@ public class FavoriteGamesApplication {
         System.out.println("Finalizando...");
     }
 
+    //Método que exibe o menu principal
     private static int exibirMenu() {
         String menu = """
                 ------Bem vindo ao FavoriteGames------
@@ -37,6 +50,7 @@ public class FavoriteGamesApplication {
         return scanner.nextInt();
     }
 
+    //Método que permite um usuario entrar na sua conta
     private static void entrar(){
         System.out.println("Digite seu ID: ");
         String id = scanner.next();
@@ -50,6 +64,7 @@ public class FavoriteGamesApplication {
         scanner.next();
     }
 
+    //Menu secundário da aplicação
     private static void menuEntrar(Boolean entrou) {
         System.out.println("*-*-*-*-*-*-*-Bem vindo Fulando*-*-*-*-*-*-*-");
         System.out.println("Pressione enter para ir ao menu principal");
@@ -79,6 +94,7 @@ public class FavoriteGamesApplication {
 
     }
 
+    //Método que exibe o menu secundário
     private static int exibirMenuEntrar() {
         String menu = """
                 1 - Listar jogos favoritos
@@ -108,6 +124,9 @@ public class FavoriteGamesApplication {
 
     }
 
+
+
+    //Método que permite o cadastro de um usuario
     private static void cadastrar(){
         System.out.println("Digite o ID da seu usuario: (Ele deve conter 5 digitos): ");
         String id = scanner.next();
