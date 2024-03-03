@@ -9,6 +9,8 @@ public class UsuarioService {
 
     private ConnectionFactory connection;
 
+    private Usuario usuarioAtual;
+
     public UsuarioService() {
         connection = new ConnectionFactory();
     }
@@ -20,6 +22,7 @@ public class UsuarioService {
             throw new DomainException("Senha Incorreta!!");
         }
 
+        this.usuarioAtual = usuario;
         return true;
     }
 
@@ -47,5 +50,9 @@ public class UsuarioService {
         }
 
         return usuario;
+    }
+
+    public Usuario getUsuarioAtual() {
+        return this.usuarioAtual;
     }
 }
