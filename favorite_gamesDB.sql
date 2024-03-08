@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `favorite_games` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `favorite_games`;
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: localhost    Database: favorite_games
@@ -43,6 +45,32 @@ LOCK TABLES `jogos_favoritos` WRITE;
 INSERT INTO `jogos_favoritos` VALUES ('Elisa','Super Mario Bros','Colheita Feliz','Vila Mágica','Cookie Jam','Harvest Honors'),('JSF18','Red Dead Redemption','Sekiro Shadows Die Twice','The Witcher 3','Elden Ring','God of War 2018'),('test5','Wolrd of Warcraft','Minecraft','Valorant','PUBG','LOL');
 /*!40000 ALTER TABLE `jogos_favoritos` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `usuario`
+--
+
+DROP TABLE IF EXISTS `usuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `usuario` (
+  `id` varchar(5) NOT NULL,
+  `nome` varchar(50) DEFAULT NULL,
+  `senha` varchar(8) DEFAULT NULL,
+  `ativo` tinyint(1) DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuario`
+--
+
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES ('Elisa','Elisa Vinco Zandonade','Elisa282',1),('JSF18','Jeliton Soares File','18082001',1),('test5','Teste Testando','teste123',1);
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -53,4 +81,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-03 12:00:37
+-- Dump completed on 2024-03-08 18:43:08
